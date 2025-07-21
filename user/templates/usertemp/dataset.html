@@ -1,0 +1,35 @@
+{% extends 'usertemp/userbase.html'%}
+
+{% block content %}
+
+<section class="we-do">
+    <div class="container">
+        <div class="we-do-details">
+            <div class="section-header text-center">
+                <h2>DATA SET </h2>
+                <p>
+                    <table class="table table-bordered bg-light text-dark">
+    <thead>
+      <tr style="color:red;font-weight:bold;">
+        <th>Scan_Id</th>
+        <th>Age Years</th>
+        <th>Ni_path</th>
+        <th>H5_path</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for i in d %}
+        <tr style="color: Green">
+            <td>{{forloop.counter}}</td>
+            <td>{{i.scan_id}}</td>
+            <td>{{i.age_years}}</td>
+            <td>{{i.ni_path}}</td>
+            <td>{{i.h5_path}}</td>
+        </tr>
+        {% endfor %}
+
+
+</tbody>
+</table>
+
+{% endblock%}
