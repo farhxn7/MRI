@@ -121,27 +121,28 @@ def uploaded(request):
         return render(request, 'usertemp/predection.html')
    
 def prediction_Result(request):
-   pass
-    # from tensorflow.keras.models import load_model
-    # a=load_model('user/utility/my_model.h5')   
-    # if a !='' :
-    #     print("Nothing is there")
-    # else:
-    #     # data=predect(a)
-    # return render(request, 'usertemp/result.html', {'data':data})
+#    pass
+    from user.utility.uti import read_scan, predect
+    from tensorflow.keras.models import load_model
+    a=load_model('static\images\my_model.h5')   
+    if a !='' :
+        print("Nothing is there")
+    else:
+         data=predect(a)
+    return render(request, 'usertemp/result.html', {'data':data})
 
 
-# def dataset(request):
-#     from django.conf import settings
-#     import pandas as pd
-#     path ="static/dataset/train.csv"
-#     d= pd.read_csv(path)
-#     if not d.empty:
-#             d=d.iloc[:, : -1]
-#     else:
-#             print('something error')
-#     print(d)
-#     return render(request,'usertemp/dataset.html', {'d' :d})
+def dataset(request):
+    from django.conf import settings
+    import pandas as pd
+    path ="static/dataset/train.csv"
+    d= pd.read_csv(path)
+    if not d.empty:
+            d=d.iloc[:, : -1]
+    else:
+            print('something error')
+    print(d)
+    return render(request,'usertemp/dataset.html', {'d' :d})
            
  
 

@@ -27,5 +27,9 @@ def predect(c_filename):
         print(path)
         
         model_load = load_model(filepath=path)
-        pred = simple_model.predict(np.expand_dims(np.expand_dims(read_scan(c_filename), -1)),0)
-        pred.hist()
+        pred = model_load.predict(np.expand_dims(np.expand_dims(read_scan(c_filename), axis=-1),axis=0))
+        # import matplotlib.pyplot as plt
+        # plt.hist(pred)
+        # plt.show()
+        print(pred)
+        return pred
